@@ -17,18 +17,13 @@ const Hero = () => {
           </span>
         </div>
         
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          
-
-
-
-
-
-Kavya Pabba
-Actionable Insights
-          <br />
-          <span className="text-gradient glow-primary">​Data Sci       </span>
+        <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight">
+          Kavya Pabba
         </h1>
+        
+        <p className="text-2xl md:text-3xl text-muted-foreground mb-6 font-light">
+          Data Scientist
+        </p>
         
         <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
           Specialized in machine learning, statistical analysis, and building data-driven solutions 
