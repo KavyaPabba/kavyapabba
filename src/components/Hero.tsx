@@ -26,8 +26,7 @@ const Hero = () => {
         </p>
         
         <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Specialized in machine learning, statistical analysis, and building data-driven solutions 
-          that drive business growth and innovation.
+          ​Transforming complex data into scalable pipelines, actionable insights, and AI-driven business solutions across cloud, analytics, and governance systems.
         </p>
         
         {/* CTA Buttons */}
