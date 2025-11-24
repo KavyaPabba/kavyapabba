@@ -45,7 +45,7 @@ const Hero = () => {
           <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="GitHub">
             <Github className="h-6 w-6" />
           </a>
-          <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/pabba-kavya-b160a9163/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
             <Linkedin className="h-6 w-6" />
           </a>
           <a href="#" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Email">
