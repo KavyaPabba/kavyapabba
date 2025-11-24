@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="container mx-auto px-6 z-10 text-center animate-fade-in">
         <div className="mb-6 inline-block">
           <span className="text-primary font-mono text-sm tracking-wider">
-            {'<'} DATA SCIENTIST {'/>'} 
+            {'<'} Hello{'/>'} 
           </span>
         </div>
         
