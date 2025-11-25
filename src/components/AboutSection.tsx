@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import technicalExpertiseImg from "@/assets/technical-expertise.png";
 
 const AboutSection = () => {
   const ref = useRef(null);
@@ -23,8 +24,8 @@ const AboutSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <img 
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop" 
-              alt="Professional portrait"
+              src={technicalExpertiseImg} 
+              alt="Technical Expertise Overview"
               className="w-full h-full object-cover"
             />
           </motion.div>
