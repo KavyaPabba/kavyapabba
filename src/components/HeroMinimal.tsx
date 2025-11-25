@@ -13,7 +13,7 @@ const HeroMinimal = () => {
       >
         {/* Left - Data Scientist & Subheading */}
         <motion.div
-          className="max-w-xl"
+          className="max-w-xl flex flex-col justify-start"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -28,7 +28,7 @@ const HeroMinimal = () => {
 
         {/* Right - Profile Image */}
         <motion.div
-          className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden flex-shrink-0"
+          className="w-48 h-48 md:w-72 md:h-72 overflow-hidden flex-shrink-0"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -43,7 +43,7 @@ const HeroMinimal = () => {
 
       {/* Bottom Center - Name */}
       <motion.h1 
-        className="text-[15vw] md:text-[12vw] font-bold leading-none tracking-tight text-foreground text-center"
+        className="text-[18vw] md:text-[16vw] lg:text-[14vw] font-bold leading-none tracking-tight text-foreground text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.6 }}
