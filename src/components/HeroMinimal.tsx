@@ -1,36 +1,55 @@
 import { motion } from "framer-motion";
+import profilePhoto from "@/assets/profile-photo.png";
 
 const HeroMinimal = () => {
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center items-center pt-[90px] pb-0 px-0 bg-black max-w-[1480px] mx-auto overflow-hidden">
+    <section className="w-full min-h-screen flex flex-col justify-between pt-[90px] pb-12 px-6 bg-black max-w-[1480px] mx-auto overflow-hidden relative">
+      {/* Top Section - Title Left, Image Right */}
       <motion.div 
-        className="w-full text-center px-6"
+        className="w-full flex justify-between items-start"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <motion.h1 
-          className="text-[15vw] md:text-[12vw] font-bold leading-none tracking-tight text-foreground mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-        >
-          Kavya Pabba
-        </motion.h1>
-        
+        {/* Left - Data Scientist & Subheading */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          className="max-w-xl"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <p className="text-xl md:text-2xl text-muted-foreground mb-6">
+          <p className="text-2xl md:text-3xl text-foreground font-semibold mb-4">
             Data Scientist
           </p>
-          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
             Transforming complex data into scalable pipelines, actionable insights, and AI-driven business solutions across cloud, analytics, and governance systems.
           </p>
         </motion.div>
+
+        {/* Right - Profile Image */}
+        <motion.div
+          className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden flex-shrink-0"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <img 
+            src={profilePhoto} 
+            alt="Kavya Pabba" 
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
       </motion.div>
+
+      {/* Bottom Center - Name */}
+      <motion.h1 
+        className="text-[15vw] md:text-[12vw] font-bold leading-none tracking-tight text-foreground text-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.6 }}
+      >
+        Kavya Pabba
+      </motion.h1>
     </section>
   );
 };
