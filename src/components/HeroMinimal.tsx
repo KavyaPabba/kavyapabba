@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 const HeroMinimal = () => {
   return (
-    <section className="absolute w-full h-min flex flex-col justify-center items-center pt-[90px] pb-0 px-0 bg-black max-w-[1480px] overflow-hidden">
+    <section className="w-full min-h-screen flex flex-col justify-center items-center pt-[90px] pb-0 px-0 bg-black max-w-[1480px] mx-auto overflow-hidden">
       <motion.div 
-        className="w-full text-center"
+        className="w-full text-center px-6"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
