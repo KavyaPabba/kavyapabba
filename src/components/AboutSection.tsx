@@ -2,13 +2,15 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import technicalExpertiseImg from "@/assets/technical-expertise.png";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-32 bg-background">
+    <section ref={ref} className="py-32 bg-background relative">
+      <GlowingEffect disabled={false} proximity={200} spread={80} blur={20} />
       <div className="container mx-auto px-6">
         <motion.div 
           className="grid md:grid-cols-2 gap-16 items-center"

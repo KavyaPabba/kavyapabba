@@ -6,6 +6,7 @@ import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const ContactMinimal = () => {
   const [formData, setFormData] = useState({
@@ -26,6 +27,7 @@ const ContactMinimal = () => {
 
   return (
     <section className="py-32 bg-background relative overflow-hidden">
+      <GlowingEffect disabled={false} proximity={200} spread={80} blur={20} />
       {/* Animated background dots */}
       <div className="absolute inset-0 opacity-20">
         {[...Array(50)].map((_, i) => (
