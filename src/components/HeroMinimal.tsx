@@ -3,17 +3,17 @@ import profilePhoto from "@/assets/profile-photo.png";
 
 const HeroMinimal = () => {
   return (
-    <section className="w-full min-h-screen flex flex-col justify-between pt-[90px] pb-12 px-6 bg-black max-w-[1480px] mx-auto overflow-hidden relative perspective-1000">
+    <section className="w-full min-h-screen flex flex-col justify-between pt-[90px] pb-8 px-6 bg-black max-w-[1480px] mx-auto overflow-hidden relative perspective-1000">
       {/* Top Section - Title Left, Image Right */}
       <motion.div 
-        className="w-full flex justify-between items-start"
+        className="w-full flex justify-between items-start gap-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
       >
         {/* Left - Data Scientist & Subheading */}
         <motion.div
-          className="max-w-xl flex flex-col justify-start"
+          className="flex-1 max-w-2xl flex flex-col justify-start"
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 1.7 }}
@@ -24,17 +24,17 @@ const HeroMinimal = () => {
           }}
           style={{ transformStyle: "preserve-3d" }}
         >
-          <p className="text-2xl md:text-3xl lg:text-4xl text-foreground font-semibold mb-4">
+          <p className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-foreground font-semibold mb-6">
             Data Scientist
           </p>
-          <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl xl:text-3xl text-muted-foreground leading-relaxed">
             Transforming complex data into scalable pipelines, actionable insights, and AI-driven business solutions across cloud, analytics, and governance systems.
           </p>
         </motion.div>
 
         {/* Right - Profile Image */}
         <motion.div
-          className="w-48 h-48 md:w-72 md:h-72 lg:w-80 lg:h-80 overflow-hidden flex-shrink-0"
+          className="w-56 h-56 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] overflow-hidden flex-shrink-0"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 1.7 }}
@@ -56,7 +56,7 @@ const HeroMinimal = () => {
 
       {/* Bottom Center - Name */}
       <motion.h1 
-        className="text-[12vw] md:text-[10vw] lg:text-[8vw] xl:text-[7vw] font-bold leading-none tracking-tight text-foreground text-center whitespace-nowrap"
+        className="text-[13vw] md:text-[11vw] lg:text-[9vw] xl:text-[8vw] font-bold leading-none tracking-tight text-foreground text-center whitespace-nowrap px-4"
         initial={{ opacity: 0, y: "-50vh", scale: 1.2 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ 
