@@ -1,65 +1,237 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Label } from "./ui/label";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 
 const ContactMinimal = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const { toast } = useToast();
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Message sent!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+    setFormData({ name: "", email: "", message: "" });
+  };
+
   return (
-    <section className="py-32 bg-background">
-      <div className="container mx-auto px-6">
+    <section className="py-32 bg-background relative overflow-hidden">
+      {/* Animated background dots */}
+      <div className="absolute inset-0 opacity-20">
+        {[...Array(50)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-1 h-1 bg-foreground rounded-full"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+            }}
+            animate={{
+              opacity: [0.2, 0.8, 0.2],
+              scale: [1, 1.5, 1],
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          />
+        ))}
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Header */}
         <motion.div 
-          className="text-center max-w-3xl mx-auto"
+          className="text-center max-w-4xl mx-auto mb-20"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 text-foreground">
+          <h2 
+            className="text-5xl md:text-7xl font-bold mb-8"
+            style={{
+              background: "var(--gradient-text)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
             Let's Connect
           </h2>
-          <p className="text-xl text-muted-foreground mb-12">
-            Open to collaboration on data science projects and opportunities.
+          <div className="h-1 w-32 mx-auto mb-8" style={{ background: "var(--gradient-button)" }} />
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Ready to transform your data into actionable insights? Let's discuss how we can drive your business forward with AI and analytics.
           </p>
-
-          {/* Social Links */}
-          <div className="flex gap-8 justify-center mb-16">
-            <motion.a 
-              href="https://github.com/KavyaPabba" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-6 bg-secondary hover:bg-accent rounded-full transition-colors group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Github className="w-8 h-8 text-foreground" />
-            </motion.a>
-            <motion.a 
-              href="https://www.linkedin.com/in/pabba-kavya-b160a9163/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="p-6 bg-secondary hover:bg-accent rounded-full transition-colors group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Linkedin className="w-8 h-8 text-foreground" />
-            </motion.a>
-            <motion.a 
-              href="mailto:kavya@example.com"
-              className="p-6 bg-secondary hover:bg-accent rounded-full transition-colors group"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Mail className="w-8 h-8 text-foreground" />
-            </motion.a>
-          </div>
-
-          <div className="space-y-4 text-muted-foreground">
-            <p className="text-lg">
-              <strong className="text-foreground">Email:</strong> kavya.pabba@example.com
-            </p>
-            <p className="text-lg">
-              <strong className="text-foreground">Location:</strong> Available for remote opportunities
-            </p>
-          </div>
         </motion.div>
+
+        {/* Two Column Layout */}
+        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Left Side - Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h3 className="text-3xl font-bold mb-12 text-foreground">Get in Touch</h3>
+            
+            <div className="space-y-6">
+              {/* Email */}
+              <motion.a
+                href="mailto:pabbakavya123@gmail.com"
+                className="flex items-start gap-4 p-6 bg-secondary/50 backdrop-blur rounded-lg hover:bg-secondary transition-colors group"
+                whileHover={{ scale: 1.02, x: 10 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="p-3 bg-accent rounded-lg">
+                  <Mail className="w-6 h-6 text-foreground" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Email</p>
+                  <p className="text-foreground font-medium">pabbakavya123@gmail.com</p>
+                </div>
+              </motion.a>
+
+              {/* Phone */}
+              <motion.div
+                className="flex items-start gap-4 p-6 bg-secondary/50 backdrop-blur rounded-lg"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                whileHover={{ scale: 1.02, x: 10 }}
+              >
+                <div className="p-3 bg-accent rounded-lg">
+                  <Phone className="w-6 h-6 text-foreground" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Phone</p>
+                  <p className="text-foreground font-medium">Available upon request</p>
+                </div>
+              </motion.div>
+
+              {/* Location */}
+              <motion.div
+                className="flex items-start gap-4 p-6 bg-secondary/50 backdrop-blur rounded-lg"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                whileHover={{ scale: 1.02, x: 10 }}
+              >
+                <div className="p-3 bg-accent rounded-lg">
+                  <MapPin className="w-6 h-6 text-foreground" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Location</p>
+                  <p className="text-foreground font-medium">Available for remote opportunities</p>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex gap-4 mt-8">
+              <motion.a 
+                href="https://www.linkedin.com/in/pabba-kavya-b160a9163/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-4 bg-secondary/50 backdrop-blur hover:bg-accent rounded-lg transition-colors"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Linkedin className="w-6 h-6 text-foreground" />
+              </motion.a>
+              <motion.a 
+                href="https://github.com/KavyaPabba" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-4 bg-secondary/50 backdrop-blur hover:bg-accent rounded-lg transition-colors"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Github className="w-6 h-6 text-foreground" />
+              </motion.a>
+            </div>
+          </motion.div>
+
+          {/* Right Side - Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <Label htmlFor="name" className="text-foreground mb-2 block">
+                  Name
+                </Label>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                  className="bg-secondary/50 backdrop-blur border-border text-foreground placeholder:text-muted-foreground focus:border-accent"
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="email" className="text-foreground mb-2 block">
+                  Email
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="your@email.com"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                  className="bg-secondary/50 backdrop-blur border-border text-foreground placeholder:text-muted-foreground focus:border-accent"
+                />
+              </div>
+
+              <div>
+                <Label htmlFor="message" className="text-foreground mb-2 block">
+                  Message
+                </Label>
+                <Textarea
+                  id="message"
+                  placeholder="Tell me about your project..."
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  required
+                  rows={6}
+                  className="bg-secondary/50 backdrop-blur border-border text-foreground placeholder:text-muted-foreground focus:border-accent resize-none"
+                />
+              </div>
+
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button
+                  type="submit"
+                  className="w-full text-lg py-6 font-semibold text-white border-0"
+                  style={{
+                    background: "var(--gradient-button)",
+                  }}
+                >
+                  Send Message
+                </Button>
+              </motion.div>
+            </form>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
