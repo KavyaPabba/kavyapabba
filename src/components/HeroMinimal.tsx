@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const HeroMinimal = () => {
   return (
     <section className="w-full min-h-screen flex flex-col justify-between pt-[90px] pb-8 px-6 bg-black max-w-[1480px] mx-auto overflow-hidden relative perspective-1000">
+      <GlowingEffect disabled={false} proximity={200} spread={80} blur={20} />
       {/* Top Section - Title Left, Image Right */}
       <motion.div 
         className="w-full flex justify-between items-start gap-8"

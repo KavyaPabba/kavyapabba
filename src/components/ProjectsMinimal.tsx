@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import MarqueeText from "./MarqueeText";
 import { ExternalLink, Github } from "lucide-react";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const projects = [
   {
@@ -30,7 +31,8 @@ const ProjectsMinimal = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-32 bg-background">
+    <section ref={ref} className="py-32 bg-background relative">
+      <GlowingEffect disabled={false} proximity={200} spread={80} blur={20} />
       <MarqueeText text="# Featured Projects" />
       
       <div className="container mx-auto px-6 mt-32">
