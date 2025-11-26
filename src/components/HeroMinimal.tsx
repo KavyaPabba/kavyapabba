@@ -56,7 +56,7 @@ const HeroMinimal = () => {
 
       {/* Bottom Center - Name */}
       <motion.h1 
-        className="text-[13vw] md:text-[11vw] lg:text-[9vw] xl:text-[8vw] font-bold leading-none tracking-tight text-foreground text-center whitespace-nowrap px-4"
+        className="text-[18vw] md:text-[16vw] lg:text-[14vw] xl:text-[12vw] font-bold leading-none tracking-tight text-foreground text-center whitespace-nowrap"
         initial={{ opacity: 0, y: "-50vh", scale: 1.2 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ 
