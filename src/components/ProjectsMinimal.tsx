@@ -4,6 +4,7 @@ import { useRef } from "react";
 import MarqueeText from "./MarqueeText";
 import { ExternalLink, Github } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { AnimatedDotsBackground } from "@/components/ui/animated-dots-background";
 
 const projects = [
   {
@@ -32,6 +33,7 @@ const ProjectsMinimal = () => {
 
   return (
     <section ref={ref} className="py-32 bg-background relative">
+      <AnimatedDotsBackground />
       <GlowingEffect disabled={false} proximity={200} spread={80} blur={20} />
       <MarqueeText text="# Featured Projects" />
       
