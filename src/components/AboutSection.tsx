@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { AnimatedDotsBackground } from "@/components/ui/animated-dots-background";
 
 const AboutSection = () => {
   const ref = useRef(null);
@@ -9,6 +10,7 @@ const AboutSection = () => {
 
   return (
     <section ref={ref} className="py-32 bg-background relative">
+      <AnimatedDotsBackground />
       <GlowingEffect disabled={false} proximity={200} spread={80} blur={20} />
       <div className="container mx-auto px-6">
         <motion.div 

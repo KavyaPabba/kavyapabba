@@ -7,6 +7,7 @@ import { Label } from "./ui/label";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { AnimatedDotsBackground } from "@/components/ui/animated-dots-background";
 
 const ContactMinimal = () => {
   const [formData, setFormData] = useState({
@@ -27,29 +28,8 @@ const ContactMinimal = () => {
 
   return (
     <section className="py-32 bg-background relative overflow-hidden">
+      <AnimatedDotsBackground />
       <GlowingEffect disabled={false} proximity={200} spread={80} blur={20} />
-      {/* Animated background dots */}
-      <div className="absolute inset-0 opacity-20">
-        {[...Array(50)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-foreground rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              opacity: [0.2, 0.8, 0.2],
-              scale: [1, 1.5, 1],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
