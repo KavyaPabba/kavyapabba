@@ -2,12 +2,54 @@ import { motion } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { AnimatedDotsBackground } from "@/components/ui/animated-dots-background";
+import { Github, Linkedin } from "lucide-react";
 
 const HeroMinimal = () => {
   return (
     <section className="w-full min-h-screen flex flex-col justify-between pt-[90px] pb-8 px-6 bg-background max-w-[1480px] mx-auto overflow-hidden relative perspective-1000">
       <AnimatedDotsBackground />
       <GlowingEffect disabled={false} proximity={200} spread={80} blur={20} />
+      
+      {/* Header */}
+      <motion.header 
+        className="w-full flex flex-col md:flex-row justify-between items-center gap-4 md:gap-8 mb-8"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+      >
+        {/* Left - Data Scientist */}
+        <div className="text-sm md:text-base text-muted-foreground font-medium">
+          Data Scientist
+        </div>
+        
+        {/* Center - Quick Links */}
+        <div className="flex items-center gap-6">
+          <span className="text-sm md:text-base text-muted-foreground">Quick links:</span>
+          <a 
+            href="https://linkedin.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-foreground hover:text-primary transition-colors duration-200"
+            aria-label="LinkedIn"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
+          <a 
+            href="https://github.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-foreground hover:text-primary transition-colors duration-200"
+            aria-label="GitHub"
+          >
+            <Github className="w-5 h-5" />
+          </a>
+        </div>
+        
+        {/* Right - Based in Italy */}
+        <div className="text-sm md:text-base text-muted-foreground font-medium">
+          Based in Italy
+        </div>
+      </motion.header>
       {/* Top Section - Title Left, Image Right */}
       <motion.div 
         className="w-full flex justify-between items-start gap-8"
