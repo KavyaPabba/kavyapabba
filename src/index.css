@@ -11,7 +11,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 5%;
+    --background: 15 38% 25%;
     --foreground: 36 78% 75%;
 
     --card: 72 29% 32%;
@@ -112,7 +112,7 @@ All colors MUST be HSL.
 
   .dark {
     /* Same as root for consistent theme */
-    --background: 0 0% 5%;
+    --background: 15 38% 25%;
     --foreground: 36 78% 75%;
     --card: 72 29% 32%;
     --card-foreground: 36 78% 75%;
