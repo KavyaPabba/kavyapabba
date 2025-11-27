@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import technicalExpertiseImg from "@/assets/technical-expertise.png";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const AboutSection = () => {
@@ -18,18 +17,33 @@ const AboutSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Image */}
+          {/* Expertise Widgets */}
           <motion.div 
-            className="relative aspect-[3/4] bg-muted rounded-lg overflow-hidden"
+            className="grid grid-cols-2 gap-6"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <img 
-              src={technicalExpertiseImg} 
-              alt="Technical Expertise Overview"
-              className="w-full h-full object-cover"
-            />
+            {[
+              { title: "Deep Learning", icon: "🧠", color: "from-purple-500/20 to-pink-500/20" },
+              { title: "Machine Learning", icon: "🤖", color: "from-blue-500/20 to-cyan-500/20" },
+              { title: "Statistical Modeling", icon: "📊", color: "from-green-500/20 to-emerald-500/20" },
+              { title: "Data Visualization", icon: "📈", color: "from-orange-500/20 to-yellow-500/20" },
+              { title: "Cloud Analytics", icon: "☁️", color: "from-indigo-500/20 to-blue-500/20" },
+              { title: "Generative AI", icon: "✨", color: "from-pink-500/20 to-rose-500/20" }
+            ].map((skill, idx) => (
+              <motion.div
+                key={skill.title}
+                className={`relative p-6 rounded-lg bg-gradient-to-br ${skill.color} border border-border/50 backdrop-blur-sm`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="text-4xl mb-3">{skill.icon}</div>
+                <h4 className="text-sm font-semibold text-foreground">{skill.title}</h4>
+              </motion.div>
+            ))}
           </motion.div>
 
           {/* Content */}
