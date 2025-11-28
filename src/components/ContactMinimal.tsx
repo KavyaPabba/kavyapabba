@@ -86,8 +86,9 @@ const ContactMinimal = () => {
               </motion.a>
 
               {/* Phone */}
-              <motion.div
-                className="flex items-start gap-4 p-6 bg-secondary/50 backdrop-blur rounded-lg"
+              <motion.a
+                href="tel:+393479237782"
+                className="flex items-start gap-4 p-6 bg-secondary/50 backdrop-blur rounded-lg hover:bg-secondary transition-colors group"
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -99,9 +100,9 @@ const ContactMinimal = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">Phone</p>
-                  <p className="text-foreground font-medium">Available upon request</p>
+                  <p className="text-foreground font-medium">+39 3479237782</p>
                 </div>
-              </motion.div>
+              </motion.a>
 
               {/* Location */}
               <motion.div
@@ -117,7 +118,7 @@ const ContactMinimal = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">Location</p>
-                  <p className="text-foreground font-medium">Available for remote opportunities</p>
+                  <p className="text-foreground font-medium">Italy, also available for remote opportunities</p>
                 </div>
               </motion.div>
             </div>

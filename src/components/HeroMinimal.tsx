@@ -6,7 +6,7 @@ import { Github, Linkedin } from "lucide-react";
 
 const HeroMinimal = () => {
   return (
-    <section className="w-full min-h-screen flex flex-col justify-between pt-[90px] pb-8 px-6 bg-background max-w-[1480px] mx-auto overflow-hidden relative perspective-1000">
+    <section className="w-full min-h-screen flex flex-col justify-between pt-4 pb-8 px-6 bg-background max-w-[1480px] mx-auto overflow-hidden relative perspective-1000">
       <AnimatedDotsBackground />
       <GlowingEffect disabled={false} proximity={200} spread={80} blur={20} />
       
