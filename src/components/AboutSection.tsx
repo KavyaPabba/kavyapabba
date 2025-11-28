@@ -19,33 +19,58 @@ const AboutSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Expertise Widgets */}
+          {/* Personal Details */}
           <motion.div 
-            className="grid grid-cols-2 gap-6"
+            className="space-y-8"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {[
-              { title: "Deep Learning", icon: "🧠", color: "from-purple-500/20 to-pink-500/20" },
-              { title: "Machine Learning", icon: "🤖", color: "from-blue-500/20 to-cyan-500/20" },
-              { title: "Statistical Modeling", icon: "📊", color: "from-green-500/20 to-emerald-500/20" },
-              { title: "Data Visualization", icon: "📈", color: "from-orange-500/20 to-yellow-500/20" },
-              { title: "Cloud Analytics", icon: "☁️", color: "from-indigo-500/20 to-blue-500/20" },
-              { title: "Generative AI", icon: "✨", color: "from-pink-500/20 to-rose-500/20" }
-            ].map((skill, idx) => (
-              <motion.div
-                key={skill.title}
-                className={`relative p-6 rounded-lg bg-gradient-to-br ${skill.color} border border-border/50 backdrop-blur-sm`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="text-4xl mb-3">{skill.icon}</div>
-                <h4 className="text-sm font-semibold text-foreground">{skill.title}</h4>
-              </motion.div>
-            ))}
+            <div className="space-y-2">
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground">Kavya Pabba</h3>
+              <p className="text-lg text-muted-foreground">Data Scientist and Analytics Expert</p>
+            </div>
+            
+            <div className="space-y-3 text-muted-foreground">
+              <p className="flex items-center gap-2">
+                <span className="text-primary">📍</span> Based in Italy
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="text-primary">✅</span> Available
+              </p>
+              <p className="flex items-center gap-2">
+                <span className="text-primary">📱</span> +39 3479237782
+              </p>
+            </div>
+
+            {/* Artistic Skill Bubbles */}
+            <div className="relative h-64 mt-12">
+              {[
+                { skill: "Python", size: "w-20 h-20", position: "top-4 left-8", delay: 0.3 },
+                { skill: "ML", size: "w-16 h-16", position: "top-12 right-12", delay: 0.4 },
+                { skill: "SQL", size: "w-14 h-14", position: "top-32 left-24", delay: 0.5 },
+                { skill: "NLP", size: "w-18 h-18", position: "bottom-16 left-12", delay: 0.6 },
+                { skill: "AI", size: "w-16 h-16", position: "bottom-8 right-16", delay: 0.7 },
+                { skill: "Cloud", size: "w-12 h-12", position: "top-20 left-48", delay: 0.8 },
+              ].map((bubble, idx) => (
+                <motion.div
+                  key={bubble.skill}
+                  className={`absolute ${bubble.size} ${bubble.position} rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30 flex items-center justify-center cursor-pointer`}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                  transition={{ duration: 0.5, delay: bubble.delay }}
+                  whileHover={{ 
+                    scale: 1.2, 
+                    backgroundColor: "hsl(var(--primary) / 0.4)",
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  <span className="text-xs md:text-sm font-semibold text-foreground">
+                    {bubble.skill}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           {/* Content */}
@@ -64,18 +89,6 @@ const AboutSection = () => {
               <p>
                 I am deeply passionate about AI and continuously explore emerging technologies, including the transformative potential of generative AI. My curiosity and enthusiasm for innovation drive me to stay at the forefront of the AI landscape, always looking for new ways to apply intelligent solutions to real-world challenges.
               </p>
-            </div>
-
-            {/* Skills Tags */}
-            <div className="flex flex-wrap gap-3 mt-8">
-              {["Python", "SQL", "NLP", "Machine Learning"].map((skill) => (
-                <span 
-                  key={skill}
-                  className="px-4 py-2 bg-secondary text-secondary-foreground rounded-full text-sm font-medium"
-                >
-                  {skill}
-                </span>
-              ))}
             </div>
           </motion.div>
         </motion.div>
