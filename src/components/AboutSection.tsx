@@ -70,24 +70,20 @@ const AboutSection = () => {
                   <motion.div
                     key={bubble.skill}
                     className={`absolute ${bubble.size} ${bubble.position} rounded-full bg-gradient-to-br from-primary/30 to-primary/10 backdrop-blur-sm border-2 border-primary/40 flex items-center justify-center cursor-pointer shadow-lg shadow-primary/20`}
-                    initial={{ opacity: 0, scale: 0, z: 0 }}
+                    initial={{ opacity: 0, scale: 0, y: 20 }}
                     animate={isInView ? { 
                       opacity: 1, 
                       scale: 1,
-                      z: [0, 50, 0],
-                      rotateX: [0, 360],
-                      rotateY: [0, 360],
-                    } : { opacity: 0, scale: 0, z: 0 }}
+                      y: [0, -20, 0],
+                    } : { opacity: 0, scale: 0, y: 20 }}
                     transition={{ 
                       duration: 0.6, 
                       delay: bubble.delay,
-                      z: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: bubble.delay },
-                      rotateX: { duration: 4, repeat: Infinity, ease: "linear", delay: bubble.delay },
-                      rotateY: { duration: 5, repeat: Infinity, ease: "linear", delay: bubble.delay },
+                      y: { duration: 3 + bubble.delay, repeat: Infinity, ease: "easeInOut", delay: bubble.delay },
                     }}
                     whileHover={{ 
                       scale: 1.3,
-                      z: 100,
+                      y: -30,
                       backgroundColor: "hsl(var(--primary) / 0.5)",
                       borderColor: "hsl(var(--primary) / 0.8)",
                       transition: { duration: 0.2 }

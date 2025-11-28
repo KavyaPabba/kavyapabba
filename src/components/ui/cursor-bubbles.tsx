@@ -70,15 +70,11 @@ export const CursorBubbles = () => {
           animate={{ 
             scale: 1, 
             opacity: 0.8,
-            rotateX: [0, 180, 360],
-            rotateY: [0, 180, 360],
           }}
           exit={{ scale: 0, opacity: 0 }}
           transition={{ 
             scale: { duration: 0.2 },
             opacity: { duration: 0.2 },
-            rotateX: { duration: 2, repeat: Infinity, ease: "linear" },
-            rotateY: { duration: 3, repeat: Infinity, ease: "linear" },
           }}
         />
       )}
@@ -97,14 +93,10 @@ export const CursorBubbles = () => {
           initial={{ 
             scale: 0, 
             opacity: 0,
-            z: 0,
           }}
           animate={{ 
             scale: [0, 1.5, 0],
             opacity: [0, 0.6, 0],
-            z: [0, 100, 0],
-            rotateX: [0, 360],
-            rotateY: [0, 360],
           }}
           transition={{ 
             duration: 1.5,
