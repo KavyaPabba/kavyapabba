@@ -82,8 +82,19 @@ const HeroMinimal = () => {
         <motion.div
           className="w-56 h-56 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] overflow-hidden flex-shrink-0"
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 1.7 }}
+          animate={{ 
+            opacity: 1, 
+            scale: [1, 1.03, 1] 
+          }}
+          transition={{ 
+            opacity: { duration: 0.8, delay: 1.7 },
+            scale: { 
+              duration: 4, 
+              delay: 2.5, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }
+          }}
           whileHover={{ 
             scale: 1.05,
             rotateY: 5,
