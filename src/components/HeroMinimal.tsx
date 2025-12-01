@@ -78,27 +78,15 @@ const HeroMinimal = () => {
           </p>
         </motion.div>
 
-        {/* Right - Profile Image */}
+        {/* Right - Profile Image in Bubble */}
         <motion.div
-          className="w-56 h-56 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] overflow-hidden flex-shrink-0"
+          className="w-56 h-56 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] rounded-full overflow-hidden flex-shrink-0 border-4 border-primary/30 shadow-[0_0_40px_rgba(var(--primary-rgb),0.3)]"
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ 
-            opacity: 1, 
-            scale: [1, 1.03, 1] 
-          }}
-          transition={{ 
-            opacity: { duration: 0.8, delay: 1.7 },
-            scale: { 
-              duration: 4, 
-              delay: 2.5, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }
-          }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 1.7 }}
           whileHover={{ 
             scale: 1.05,
-            rotateY: 5,
-            rotateX: -5,
+            boxShadow: "0 0 60px rgba(var(--primary-rgb), 0.5)",
             transition: { duration: 0.3 }
           }}
           style={{ transformStyle: "preserve-3d" }}
