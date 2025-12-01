@@ -130,7 +130,7 @@ const ContactMinimal = () => {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">Location</p>
-                  <p className="text-foreground font-medium">Italy, also available for remote opportunities</p>
+                  <p className="text-foreground font-medium">Italy (available for opportunities across Europe)</p>
                 </div>
               </motion.div>
             </div>

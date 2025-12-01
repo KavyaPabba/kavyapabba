@@ -26,7 +26,7 @@ const HeroMinimal = () => {
         <div className="flex items-center gap-6">
           <span className="text-sm md:text-base text-muted-foreground">Quick links:</span>
           <a 
-            href="https://linkedin.com" 
+            href="https://www.linkedin.com/in/pabba-kavya-b160a9163" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-foreground hover:text-primary transition-colors duration-200"
@@ -35,7 +35,7 @@ const HeroMinimal = () => {
             <Linkedin className="w-5 h-5" />
           </a>
           <a 
-            href="https://github.com" 
+            href="https://github.com/KavyaPabba" 
             target="_blank" 
             rel="noopener noreferrer"
             className="text-foreground hover:text-primary transition-colors duration-200"
