@@ -15,7 +15,7 @@ export default function ContactForm() {
     setStatus(null)
 
     const { error } = await supabase
-        .from('contact_form')
+        .from('contact_attempt')
         .insert([{ name, email, message }])
 
     setLoading(false)
