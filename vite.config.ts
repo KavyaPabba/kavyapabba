@@ -3,9 +3,6 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// Replace with your GitHub repo name for deployment
-const repoName = "your-repo";
-
 export default defineConfig(({ mode }) => ({
   base: mode === "production" ? `/kavyapabba/` : "/", // Correct base for GitHub Pages
   server: {
