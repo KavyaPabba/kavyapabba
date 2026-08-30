@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import MarqueeText from "./MarqueeText";
 import { ExternalLink, Github } from "lucide-react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { AnimatedDotsBackground } from "@/components/ui/animated-dots-background";
@@ -44,9 +43,17 @@ const ProjectsMinimal = () => {
     <section ref={ref} className="py-32 bg-background relative">
       <AnimatedDotsBackground />
       <GlowingEffect disabled={false} proximity={200} spread={80} blur={20} />
-      <MarqueeText text="# Featured Projects" />
-      
-      <div className="container mx-auto px-6 mt-32">
+
+      <div className="container mx-auto px-6 pt-32 text-center">
+        <div className="font-mono text-xs md:text-sm tracking-[0.3em] text-primary uppercase mb-4">
+          03 / Projects
+        </div>
+        <h2 className="font-sans text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground/70">
+          Featured Projects
+        </h2>
+      </div>
+
+      <div className="container mx-auto px-6 mt-20 md:mt-24">
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mb-20">
           Full-stack data expertise across ETL engineering, cloud analytics, statistical modeling, and deploying machine-learning solutions at scale.
         </p>
@@ -95,13 +102,13 @@ const ProjectsMinimal = () => {
 
               {/* Project Content */}
               <div className={index % 2 === 1 ? 'md:order-1' : ''}>
-                <span className="text-6xl font-bold text-muted-foreground/20 block mb-4">
+                <span className="font-mono text-6xl font-bold text-muted-foreground/20 block mb-4">
                   ({project.number})
                 </span>
                 <h3 className="text-3xl md:text-4xl font-bold mb-2 text-foreground">
                   {project.title}
                 </h3>
-                <p className="text-lg text-primary font-semibold mb-4">
+                <p className="font-mono text-sm text-primary font-semibold uppercase tracking-widest mb-4">
                   {project.subtitle}
                 </p>
                 <p className="text-lg text-muted-foreground">

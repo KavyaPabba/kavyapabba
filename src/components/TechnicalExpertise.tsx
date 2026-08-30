@@ -3,7 +3,6 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { AnimatedDotsBackground } from "@/components/ui/animated-dots-background";
-import MarqueeText from "./MarqueeText";
 
 const expertiseCategories = [
   {
@@ -89,9 +88,17 @@ const TechnicalExpertise = () => {
     <section ref={ref} className="py-32 bg-background relative">
       <AnimatedDotsBackground />
       <GlowingEffect disabled={false} proximity={200} spread={80} blur={20} />
-      <MarqueeText text="# Technical Expertise" />
-      
-      <div className="container mx-auto px-6 mt-32">
+
+      <div className="container mx-auto px-6 pt-32 text-center">
+        <div className="font-mono text-xs md:text-sm tracking-[0.3em] text-primary uppercase mb-4">
+          02 / Technical Expertise
+        </div>
+        <h2 className="font-sans text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground/70">
+          Technical Expertise
+        </h2>
+      </div>
+
+      <div className="container mx-auto px-6 mt-20 md:mt-24">
         <div className="grid md:grid-cols-2 gap-16">
           {expertiseCategories.map((category, categoryIdx) => (
             <motion.div
@@ -121,7 +128,7 @@ const TechnicalExpertise = () => {
                   >
                     <div className="flex items-start justify-between mb-2">
                       <h4 className="font-semibold text-foreground">{skill.name}</h4>
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium border ${getLevelColor(skill.level)}`}>
+                      <span className={`px-2 py-1 rounded-full font-mono text-[10px] font-medium uppercase tracking-wider border ${getLevelColor(skill.level)}`}>
                         {skill.level}
                       </span>
                     </div>

@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -24,6 +24,17 @@ const ContactMinimal = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!supabase) {
+      toast({
+        title: "Contact form unavailable",
+        description:
+          "The message form isn't configured yet. Please reach out by email instead.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setLoading(true);
 
     // Insert into Supabase table: contacts
@@ -69,6 +80,9 @@ const ContactMinimal = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
+          <div className="font-mono text-xs md:text-sm tracking-[0.3em] text-primary uppercase mb-4">
+            04 / Connect
+          </div>
           <h2
             className="text-5xl md:text-7xl font-bold mb-8"
             style={{
@@ -114,29 +128,9 @@ const ContactMinimal = () => {
                   <Mail className="w-6 h-6 text-foreground" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">Email</p>
+                  <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-1">Email</p>
                   <p className="text-foreground font-medium">
                     pabbakavya123@gmail.com
-                  </p>
-                </div>
-              </motion.div>
-
-              {/* Phone */}
-              <motion.div
-                className="flex items-start gap-4 p-6 bg-secondary/50 backdrop-blur rounded-lg group"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                whileHover={{ scale: 1.02, x: 10 }}
-              >
-                <div className="p-3 bg-accent rounded-lg">
-                  <Phone className="w-6 h-6 text-foreground" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">Phone</p>
-                  <p className="text-foreground font-medium">
-                    +39 3479237782
                   </p>
                 </div>
               </motion.div>
@@ -154,7 +148,7 @@ const ContactMinimal = () => {
                   <MapPin className="w-6 h-6 text-foreground" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">
+                  <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-1">
                     Location
                   </p>
                   <p className="text-foreground font-medium">
@@ -198,7 +192,7 @@ const ContactMinimal = () => {
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <Label htmlFor="name" className="text-foreground mb-2 block">
+                <Label htmlFor="name" className="font-mono text-xs uppercase tracking-wider text-foreground mb-2 block">
                   Name
                 </Label>
                 <Input
@@ -215,7 +209,7 @@ const ContactMinimal = () => {
               </div>
 
               <div>
-                <Label htmlFor="email" className="text-foreground mb-2 block">
+                <Label htmlFor="email" className="font-mono text-xs uppercase tracking-wider text-foreground mb-2 block">
                   Email
                 </Label>
                 <Input
@@ -234,7 +228,7 @@ const ContactMinimal = () => {
               <div>
                 <Label
                   htmlFor="message"
-                  className="text-foreground mb-2 block"
+                  className="font-mono text-xs uppercase tracking-wider text-foreground mb-2 block"
                 >
                   Message
                 </Label>

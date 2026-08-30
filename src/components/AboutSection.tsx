@@ -20,6 +20,14 @@ const AboutSection = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="text-center mb-16">
+            <motion.div
+              className="font-mono text-xs md:text-sm tracking-[0.3em] text-primary uppercase mb-4"
+              initial={{ opacity: 0, y: -10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
+              transition={{ duration: 0.6 }}
+            >
+              01 / About
+            </motion.div>
             <motion.h2 
               className="text-4xl md:text-5xl font-bold mb-8 text-foreground"
               initial={{ opacity: 0, y: 20 }}
@@ -43,16 +51,10 @@ const AboutSection = () => {
                 <p className="text-xl text-muted-foreground">Data Scientist and Analytics Expert</p>
               </div>
               
-              <div className="space-y-4 text-lg text-muted-foreground">
-                <p className="flex items-center gap-3">
-                  <span className="text-primary text-2xl">📍</span> Based in Italy
-                </p>
-                <p className="flex items-center gap-3">
-                  <span className="text-primary text-2xl">✅</span> Available
-                </p>
-                <p className="flex items-center gap-3">
-                  <span className="text-primary text-2xl">💼</span> 3+ Years Experience
-                </p>
+              <div className="space-y-2 font-mono text-sm uppercase tracking-wider text-muted-foreground border-l-2 border-primary/30 pl-4">
+                <p><span className="text-primary">Location:</span> Italy</p>
+                <p><span className="text-primary">Status:</span> Available</p>
+                <p><span className="text-primary">Experience:</span> 3+ Years</p>
               </div>
 
               {/* Artistic Skill Bubbles */}
@@ -65,7 +67,7 @@ const AboutSection = () => {
                   { skill: "ML/AI", size: "w-24 h-24", position: "bottom-20 left-24", delay: 0.8 },
                   { skill: "API", size: "w-16 h-16", position: "bottom-12 right-20", delay: 0.9 },
                   { skill: "Jira", size: "w-14 h-14", position: "bottom-4 left-48", delay: 1.0 },
-                  { skill: "NLP", size: "w-18 h-18", position: "top-20 left-36", delay: 1.1 },
+                  { skill: "NLP", size: "w-16 h-16", position: "top-20 left-36", delay: 1.1 },
                 ].map((bubble) => (
                   <motion.div
                     key={bubble.skill}

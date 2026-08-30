@@ -15,13 +15,11 @@ export default {
   	extend: {
 		fontFamily: {
 			sans: [
-				'Playfair Display',
-				'ui-serif',
-				'Georgia',
-				'Cambria',
-				'Times New Roman',
-				'Times',
-				'serif'
+				'Inter',
+				'ui-sans-serif',
+				'system-ui',
+				'-apple-system',
+				'sans-serif'
 			],
   			mono: [
   				'IBM Plex Mono',
@@ -33,15 +31,6 @@ export default {
   				'Liberation Mono',
   				'Courier New',
   				'monospace'
-  			],
-  			serif: [
-  				'Cormorant Garamond',
-  				'ui-serif',
-  				'Georgia',
-  				'Cambria',
-  				'Times New Roman',
-  				'Times',
-  				'serif'
   			]
   		},
   		colors: {
