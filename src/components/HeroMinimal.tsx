@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import profilePhoto from "@/assets/profile-photo.png";
 import heroKoiBg from "@/assets/hero-koi-bg.webp";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
@@ -31,17 +32,68 @@ const QuickLinks = ({ className = "" }: { className?: string }) => (
 
 const HeroMinimal = () => {
   const time = useLiveTime();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Cursor-driven 3D parallax on the background image. Springs keep the
+  // motion smooth instead of snapping straight to the pointer.
+  const mvX = useMotionValue(0);
+  const mvY = useMotionValue(0);
+  const springX = useSpring(mvX, { stiffness: 50, damping: 20, mass: 0.6 });
+  const springY = useSpring(mvY, { stiffness: 50, damping: 20, mass: 0.6 });
+
+  const bgRotateY = useTransform(springX, [-0.5, 0.5], [-7, 7]);
+  const bgRotateX = useTransform(springY, [-0.5, 0.5], [7, -7]);
+  const bgX = useTransform(springX, [-0.5, 0.5], [-18, 18]);
+  const bgY = useTransform(springY, [-0.5, 0.5], [-18, 18]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    // Only devices with an actual mouse get the tilt; touch stays static.
+    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    if (!canHover) return;
+
+    const handleMove = (e: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      mvX.set((e.clientX - rect.left) / rect.width - 0.5);
+      mvY.set((e.clientY - rect.top) / rect.height - 0.5);
+    };
+    const handleLeave = () => {
+      mvX.set(0);
+      mvY.set(0);
+    };
+
+    section.addEventListener("mousemove", handleMove);
+    section.addEventListener("mouseleave", handleLeave);
+    return () => {
+      section.removeEventListener("mousemove", handleMove);
+      section.removeEventListener("mouseleave", handleLeave);
+    };
+  }, [mvX, mvY]);
 
   return (
-    <section className="w-full min-h-screen bg-background overflow-hidden relative">
-      {/* Koi pond background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src={heroKoiBg}
-          alt=""
-          aria-hidden="true"
-          className="w-full h-full object-cover opacity-90"
-        />
+    <section ref={sectionRef} className="w-full min-h-screen bg-background overflow-hidden relative">
+      {/* Koi pond background - tilts/shifts in 3D as the cursor moves */}
+      <div className="absolute inset-0 z-0" style={{ perspective: 1200 }}>
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            rotateX: bgRotateX,
+            rotateY: bgRotateY,
+            x: bgX,
+            y: bgY,
+            scale: 1.1,
+            transformStyle: "preserve-3d",
+          }}
+        >
+          <img
+            src={heroKoiBg}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover opacity-90"
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/10 to-background/55" />
       </div>
       <GlowingEffect disabled={false} proximity={200} spread={80} blur={20} />

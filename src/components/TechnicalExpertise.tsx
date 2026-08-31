@@ -9,60 +9,60 @@ const expertiseCategories = [
     title: "Machine Learning & AI",
     subtitle: "Advanced expertise in building intelligent systems",
     skills: [
-      { name: "Deep Learning", level: "Expert", description: "Neural networks, CNNs, RNNs, Transformers with TensorFlow & PyTorch" },
-      { name: "Classical ML", level: "Expert", description: "Supervised/Unsupervised learning, ensemble methods, feature engineering" },
-      { name: "NLP & Computer Vision", level: "Advanced", description: "Text processing, image recognition, object detection, sentiment analysis" },
-      { name: "MLOps & Deployment", level: "Expert", description: "Model versioning, CI/CD pipelines, containerization, monitoring" }
+      { name: "Generative AI & RAG", level: "Expert", description: "Vector search, document chunking, and prompt orchestration. Evolved a LLaMA-based chatbot proof of concept into a production RAG solution for ISTAT, deployed with FastAPI, Docker, and React." },
+      { name: "Classical ML", level: "Expert", description: "Scikit-learn, PySpark MLlib, and LightGBM. Classification, regression, feature engineering, cross-validation, and hyperparameter tuning." },
+      { name: "Explainable AI", level: "Advanced", description: "SHAP for global and local interpretability, plus fairness analysis by gender and age." },
+      { name: "MLOps & Deployment", level: "Expert", description: "Verifying and debugging production ML pipelines, Git-based CI/CD, and Docker containerization." }
     ]
   },
   {
     title: "Data Engineering",
     subtitle: "Scalable data infrastructure and pipeline development",
     skills: [
-      { name: "Big Data Technologies", level: "Expert", description: "Apache Spark, Hadoop, Kafka for large-scale data processing" },
-      { name: "Cloud Platforms", level: "Advanced", description: "AWS, GCP, Azure - Data lakes, warehouses, serverless computing" },
-      { name: "Database Systems", level: "Expert", description: "SQL/NoSQL, PostgreSQL, MongoDB, Redis, time-series databases" },
-      { name: "Data Pipelines", level: "Advanced", description: "ETL/ELT, real-time streaming, data quality, orchestration" }
+      { name: "Big Data & Distributed Processing", level: "Advanced", description: "PySpark, Databricks, and Apache Airflow. Parallelized an ESG data pipeline using multiprocessing and concurrent.futures." },
+      { name: "Cloud Platforms", level: "Advanced", description: "AWS RDS, Azure Data Factory, and Azure SQL Database." },
+      { name: "Database Systems", level: "Advanced", description: "PostgreSQL, MySQL, SQL Server, and Azure SQL Database." },
+      { name: "Data Pipelines", level: "Expert", description: "ETL/ELT, REST API integration, incremental processing, and data validation." }
     ]
   },
   {
     title: "Analytics & Statistics",
     subtitle: "Statistical modeling and business intelligence",
     skills: [
-      { name: "Statistical Analysis", level: "Expert", description: "Hypothesis testing, regression analysis, time series forecasting" },
-      { name: "Business Intelligence", level: "Advanced", description: "KPI development, dashboard creation, stakeholder reporting" },
-      { name: "Experimental Design", level: "Advanced", description: "A/B testing, causal inference, statistical significance testing" },
-      { name: "Predictive Modeling", level: "Expert", description: "Forecasting, risk assessment, optimization algorithms" }
+      { name: "Statistical Analysis", level: "Expert", description: "Exploratory data analysis and statistical validation to identify significant risk drivers." },
+      { name: "Business Intelligence", level: "Advanced", description: "Power BI (Power Query, DAX) and Tableau dashboards for KPI reporting." },
+      { name: "Predictive Modeling", level: "Expert", description: "Credit risk scoring, financial score calibration, and industry risk benchmarking." },
+      { name: "Pipeline Monitoring", level: "Advanced", description: "Latency, throughput, and data quality monitoring for production workflows." }
     ]
   },
   {
     title: "Programming & Tools",
     subtitle: "Full-stack development and data science tools",
     skills: [
-      { name: "Python Ecosystem", level: "Expert", description: "Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, Jupyter" },
-      { name: "R & Statistical Computing", level: "Advanced", description: "RStudio, ggplot2, dplyr, statistical packages, Shiny apps" },
-      { name: "Web Technologies", level: "Advanced", description: "React, TypeScript, REST APIs, microservices architecture" },
-      { name: "DevOps & Version Control", level: "Advanced", description: "Git, Docker, Kubernetes, CI/CD, infrastructure as code" }
+      { name: "Python Ecosystem", level: "Expert", description: "Pandas, NumPy, Scikit-learn, multiprocessing, and concurrent.futures." },
+      { name: "Web Technologies", level: "Advanced", description: "React, FastAPI, and REST APIs for LLM and RAG application deployment." },
+      { name: "DevOps & Version Control", level: "Advanced", description: "Git, Docker, and CI/CD across development, staging, and production environments." },
+      { name: "Workflow Automation", level: "Advanced", description: "Apache Airflow and dbt for modular, version-controlled transformation models." }
     ]
   },
   {
     title: "Data Visualization",
     subtitle: "Creating compelling visual narratives from data",
     skills: [
-      { name: "Interactive Dashboards", level: "Expert", description: "Tableau, Power BI, Plotly Dash, real-time monitoring" },
-      { name: "Custom Visualizations", level: "Advanced", description: "D3.js, custom charts, interactive web applications" },
-      { name: "Storytelling with Data", level: "Expert", description: "Executive presentations, insight communication, visual design" },
-      { name: "Geospatial Analytics", level: "Intermediate", description: "GIS, mapping, location intelligence, spatial statistics" }
+      { name: "Interactive Dashboards", level: "Expert", description: "Power BI and Tableau dashboards for KPI and operational analysis." },
+      { name: "Business Reporting Templates", level: "Advanced", description: "Standardized Excel-based risk assessment templates with automated validation rules." },
+      { name: "Storytelling with Data", level: "Advanced", description: "Communicating credit risk and ESG insights to banking and public sector stakeholders." },
+      { name: "Tableau Prep & Data Modeling", level: "Advanced", description: "Tableau Prep Builder for fleet and operational performance dashboards." }
     ]
   },
   {
     title: "Domain Expertise",
     subtitle: "Industry knowledge and business acumen",
     skills: [
-      { name: "Financial Analytics", level: "Expert", description: "Risk modeling, fraud detection, algorithmic trading, fintech" },
-      { name: "Healthcare & Biotech", level: "Intermediate", description: "Clinical data analysis, drug discovery, medical imaging" },
-      { name: "E-commerce & Marketing", level: "Expert", description: "Customer segmentation, recommendation systems, attribution" },
-      { name: "IoT & Sensors", level: "Advanced", description: "Time-series analysis, anomaly detection, predictive maintenance" }
+      { name: "Financial Risk & Credit Scoring", level: "Expert", description: "SME credit risk, industry benchmarking, and ESG metrics for an on-premise AI platform." },
+      { name: "Public Sector & National Statistics", level: "Advanced", description: "Survey and administrative data pipelines and RAG solutions for a national statistics institute." },
+      { name: "Mobility & Fleet Analytics", level: "Advanced", description: "Fleet, operational, and pricing analytics for a shared mobility company." },
+      { name: "ESG & Sustainability Analytics", level: "Advanced", description: "Parallelized ESG data processing across thousands of Italian companies." }
     ]
   }
 ];
