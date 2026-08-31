@@ -105,8 +105,8 @@ const InteractivePixelBackground = ({ src, alt = "", className = "" }: Interacti
       }
     };
 
-    const RADIUS = 260;
-    const MAX_DISPLACE = 46;
+    const RADIUS = 65;
+    const MAX_DISPLACE = 14;
 
     // Stable per-cell pseudo-random values so the scatter direction and
     // size read as organic breakup rather than a perfectly even radial
@@ -118,6 +118,13 @@ const InteractivePixelBackground = ({ src, alt = "", className = "" }: Interacti
     const sizeJitterFor = (gx: number, gy: number) => {
       const n = Math.sin(gx * 39.346 + gy * 11.135) * 24634.634;
       return 0.7 + (n - Math.floor(n)) * 0.6; // 0.7 - 1.3
+    };
+    // A third, independent stable value per cell used to decide whether
+    // that cell participates at all - keeps the affected patch a ragged
+    // handful of blocks instead of a filled circle.
+    const activationFor = (gx: number, gy: number) => {
+      const n = Math.sin(gx * 91.345 + gy * 47.853) * 12965.735;
+      return n - Math.floor(n);
     };
 
     const draw = () => {
@@ -161,10 +168,15 @@ const InteractivePixelBackground = ({ src, alt = "", className = "" }: Interacti
             const t = 1 - dist / RADIUS;
             const eased = t * t * (3 - 2 * t); // smoothstep falloff
 
+            // Only a ragged subset of cells within the radius participate,
+            // and even fewer toward the edge - a scattered handful of
+            // blocks rather than a solid, circular disk.
+            if (activationFor(gx, gy) >= eased * 0.6) continue;
+
             const angle = Math.atan2(dy, dx) + (noiseFor(gx, gy) - Math.PI) * 0.4;
             const push = eased * MAX_DISPLACE;
             const tx = cx + Math.cos(angle) * push;
-            const ty = cy + Math.sin(angle) * push - eased * 18;
+            const ty = cy + Math.sin(angle) * push - eased * 8;
 
             const jitter = sizeJitterFor(gx, gy);
             const size = cellSize * jitter * (1 - eased * 0.3);
@@ -185,7 +197,7 @@ const InteractivePixelBackground = ({ src, alt = "", className = "" }: Interacti
             ctx.globalAlpha = alpha;
             ctx.fillStyle = `rgb(${rr}, ${gg}, ${bb})`;
             ctx.shadowColor = `rgba(${rr}, ${gg}, ${bb}, 0.85)`;
-            ctx.shadowBlur = 18 * eased;
+            ctx.shadowBlur = 8 * eased;
             ctx.fillRect(tx - size / 2, ty - size / 2, size, size);
             ctx.shadowBlur = 0;
             ctx.globalAlpha = 1;
