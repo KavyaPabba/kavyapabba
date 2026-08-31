@@ -108,13 +108,13 @@ const AboutSection = () => {
             >
               <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
                 <p>
-                  With over <span className="text-primary font-semibold">3 years of experience</span> in Data Science and Analytics, I am a data-driven professional specializing in Deep Learning, Machine Learning, Statistical Modeling, and Data Visualization.
+                  With over <span className="text-primary font-semibold">3 years of experience</span> in Data Science and Analytics, I am a data-driven professional who has built production-grade AI and Machine Learning solutions across financial services, national statistics, and mobility sectors, with a focus on <span className="text-primary font-semibold">predictive modeling, generative AI, and MLOps</span>.
                 </p>
                 <p>
-                  I am deeply passionate about AI and continuously explore emerging technologies, including the transformative potential of generative AI. My curiosity and enthusiasm for innovation drive me to stay at the forefront of the AI landscape, always looking for new ways to apply intelligent solutions to real-world challenges.
+                  I am especially drawn to <span className="text-primary font-semibold">generative AI and retrieval-augmented generation</span>. I led the evolution of a LLaMA-based chatbot proof of concept into a <span className="text-primary font-semibold">production RAG solution</span> for Italy's national statistics institute, and I continue to explore how large language models can be applied to solve real-world business problems.
                 </p>
                 <p>
-                  My expertise spans across cloud platforms like <span className="text-primary font-semibold">Azure</span>, building scalable data pipelines with <span className="text-primary font-semibold">PySpark</span>, developing robust <span className="text-primary font-semibold">APIs</span>, and managing projects using <span className="text-primary font-semibold">Jira</span>. I thrive on transforming complex data into actionable insights that drive business value.
+                  My expertise spans building scalable data pipelines with <span className="text-primary font-semibold">PySpark</span> and <span className="text-primary font-semibold">Apache Airflow</span>, developing credit risk and predictive models for financial services, and deploying production APIs with <span className="text-primary font-semibold">FastAPI</span> and <span className="text-primary font-semibold">Docker</span>. I work across <span className="text-primary font-semibold">AWS</span> and <span className="text-primary font-semibold">Azure</span>, and I thrive on transforming complex, high-volume data into insights that support real business decisions.
                 </p>
               </div>
             </motion.div>
